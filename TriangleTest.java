@@ -22,11 +22,11 @@ public class TriangleTest {
 	@Test
 	public void testIsItIsosceles()
 	{
-		double a=-1,b=2,c=2;
+		double a=3,b=3,c=4;
 		assertEquals("The triangle is isosceles",CarlosTriangleProgram.whatTypeOfTriangleIsThis(a,b,c));
 	}
 	@Test
-	public void testIsiItScalene()
+	public void testIsItScalene()
 	{
 		double a=2,b=3,c=4;
 		assertEquals("The triangle is scalene",CarlosTriangleProgram.whatTypeOfTriangleIsThis(a,b,c));
