@@ -1,14 +1,12 @@
 import java.util.*;
 class CarlosTriangleProgram {
     public static void main(String[] args) {
-	double a=0,b=0,c=0;
-		Scanner scan = new Scanner(System.in);
-		System.out.print("Please input the first side: "); 
-	    a = scan.nextDouble();
-		System.out.print("Please input the second side: "); 		
-		b = scan.nextDouble();
-		System.out.print("Please input the third side: "); 		
-		c = scan.nextDouble();
+	double[] triangle = new double[3];
+		while(isItInvalidInputLetter(triangle))
+		{
+			System.out.println("This is a invalid input, please only use numbers!");
+		}
+		double a=triangle[0],b=triangle[1],c=triangle[2];
 		if(isItARightTriangle(a,b,c))
 		{
 			System.out.println("It is a right triangle");
@@ -37,5 +35,21 @@ class CarlosTriangleProgram {
 		}
 		else
 			return "The triangle is scalene";
+	}
+	public static boolean isItInvalidInputLetter(double[] triangle)
+	{
+		Scanner scan = new Scanner(System.in);
+		try{
+			System.out.print("Please input the first side: "); 
+		    triangle[0] = scan.nextDouble();
+			System.out.print("Please input the second side: "); 		
+			triangle[1] = scan.nextDouble();
+			System.out.print("Please input the third side: "); 		
+			triangle[2] = scan.nextDouble();
+		}
+		catch(InputMismatchException e){
+				return true;
+		}
+		return false;
 	}
 }	

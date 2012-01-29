@@ -19,6 +19,10 @@ public class TriangleTest {
 		double a=-1,b=2,c=2;
 		assertFalse(CarlosTriangleProgram.isItARightTriangle(a,b,c));
 	}
+	public void testIsItNotARightTriangleWithLetters(){
+		double a=-1,b=2,c=2;
+		assertFalse(CarlosTriangleProgram.isItARightTriangle(a,b,c));
+	}
 	@Test
 	public void testIsItIsosceles()
 	{
@@ -69,11 +73,5 @@ public class TriangleTest {
 		double a=0,b=0,c=0;
 		assertFalse("The triangle is equilateral".equals(CarlosTriangleProgram.whatTypeOfTriangleIsThis(a,b,c)));
 		
-	}
-	@Test
-	public void testIfInputIsNotLetter()
-	{
-		double a='a',b='b',c='c';
-		assertFalse(CarlosTriangleProgram.isItARightTriangle(a,b,c));
 	}
 }
