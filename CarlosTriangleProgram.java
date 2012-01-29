@@ -12,29 +12,29 @@ class CarlosTriangleProgram {
 		if(isItARightTriangle(a,b,c))
 		{
 			System.out.println("It is a right triangle");
-			whatTypeOfTriangleIsThis(a,b,c);
+			System.out.println(whatTypeOfTriangleIsThis(a,b,c));
 		}
 		else
 			System.out.println("It is NOT a right triangle");	
-	
-			
+
+
     }
-	private static boolean isItARightTriangle(double a, double b, double c){
+	public static boolean isItARightTriangle(double a, double b, double c){
 		if( (a < b+c) && (b < a + c) && (c < a + b) ) 
 			return true;
 		else
 			return false;
 	}
-	private static void whatTypeOfTriangleIsThis(double a, double b, double c)
+	public static String whatTypeOfTriangleIsThis(double a, double b, double c)
 	{
 		if((a == b) || (b == c) || (a == c))
 		{
 			if((a != b) || (b!= c) || (a != c))
-				System.out.println("The triangle is isosceles");
+				return "The triangle is isosceles";
 			else
-				System.out.println("The triangle is equilateral");
+				return "The triangle is equilateral";
 		}
 		else
-			System.out.println("The triangle is scalene");
+			return "The triangle is scalene";
 	}
 }	
