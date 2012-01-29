@@ -14,10 +14,10 @@ public class TriangleTest {
 	@After
 	public void tearDown() throws Exception {
 	}
-
 	@Test
-	public void testMain() {
-		fail("Not yet implemented");
+	public void testIsItARightTriangle(){
+		int a=-1,b=2,c=2;
+		assertFalse("This should not be a right triangle!",CarlosTriangleProgram.isItARightTriangle(a,b,c));
 	}
 
 }
