@@ -27,6 +27,7 @@ class CarlosTriangleProgram {
 	}
 	public static String whatTypeOfTriangleIsThis(double a, double b, double c)
 	{
+		if(!(isItARightTriangle(a,b,c))) return "";
 		if((a == b) || (b == c) || (a == c))
 		{
 			if((a != b) || (b!= c) || (a != c))
