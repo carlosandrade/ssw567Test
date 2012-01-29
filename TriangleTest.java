@@ -16,8 +16,14 @@ public class TriangleTest {
 	}
 	@Test
 	public void testIsItARightTriangle(){
-		int a=-1,b=2,c=2;
-		assertFalse("This should not be a right triangle!",CarlosTriangleProgram.isItARightTriangle(a,b,c));
+		double a=-1,b=2,c=2;
+		assertFalse(CarlosTriangleProgram.isItARightTriangle(a,b,c));
 	}
-
+	@Test
+	public void testIsItIsosceles()
+	{
+		double a=-1,b=2,c=2;
+		assertEquals("The triangle is isosceles",CarlosTriangleProgram.whatTypeOfTriangleIsThis(a,b,c));
+	}
+	
 }
