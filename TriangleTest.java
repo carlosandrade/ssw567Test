@@ -70,4 +70,10 @@ public class TriangleTest {
 		assertFalse("The triangle is equilateral".equals(CarlosTriangleProgram.whatTypeOfTriangleIsThis(a,b,c)));
 		
 	}
+	@Test
+	public void testIfInputIsNotLetter()
+	{
+		double a='a',b='b',c='c';
+		assertFalse(CarlosTriangleProgram.isItARightTriangle(a,b,c));
+	}
 }
