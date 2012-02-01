@@ -62,30 +62,28 @@ public class ChandlerTriangle extends JFrame{
 		});
 	}
 	private void check(){
+		JOptionPane.showMessageDialog(this, checkResultMessage(txtSide1.getText(),txtSide2.getText(),txtSide3.getText()));
+	}
+	public String checkResultMessage(String s1, String s2, String s3){
 		try{
-		float side1=Float.parseFloat(txtSide1.getText());
-		float side2=Float.parseFloat(txtSide2.getText());
-		float side3=Float.parseFloat(txtSide3.getText());
-		if(!(side2-side1<side3&&side1-side2<side3&&side1+side2>side3)){
-			JOptionPane.showMessageDialog(this, "Not a triangle.");
-			return;
-		}
-		if(side1==side2||side2==side3||side3==side1){
-			if(side1==side2&&side2==side3){
-				JOptionPane.showMessageDialog(this, "Equalateral.");
-				return;
-			}else{
-				JOptionPane.showMessageDialog(this, "Isosceles.");
-				return;
+			float side1=Float.parseFloat(s1);
+			float side2=Float.parseFloat(s2);
+			float side3=Float.parseFloat(s3);
+			if(!(side2-side1<side3&&side1-side2<side3&&side1+side2>side3)){
+				return "Not a triangle.";
 			}
-		}else{
-			JOptionPane.showMessageDialog(this, "Scalene.");
-			return;
-		}
-		}catch(NumberFormatException e){
-			JOptionPane.showMessageDialog(this, "Invalid input number");
-			return;
-		}
+			if(side1==side2||side2==side3||side3==side1){
+				if(side1==side2&&side2==side3){
+					return "This triangle is equilateral.";
+				}else{
+					return "This triangle is isosceles.";
+				}
+			}else{
+				return "This triangle is scalene.";
+			}
+			}catch(NumberFormatException e){
+				return "Invalid input number.";
+			}
 	}
 	private void clear(){
 		txtSide1.setText("");
