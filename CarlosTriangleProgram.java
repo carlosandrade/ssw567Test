@@ -29,12 +29,29 @@ class CarlosTriangleProgram {
 		if((a == b) || (b == c) || (a == c))
 		{
 			if((a != b) || (b!= c) || (a != c))
-				return "The triangle is isosceles";
+				if(isRightTriangle(a,b,c)){
+					return "The triangle is right and isosceles";
+				}else
+					return "The triangle is isosceles";
 			else
 				return "The triangle is equilateral";
 		}
-		else
+		else{
+			if(isRightTriangle(a,b,c)){
+				return "The triangle is right";
+			}else
 			return "The triangle is scalene";
+		}
+	}
+	private static boolean isRightTriangle(double side1, double side2, double side3){
+		double max=side1;
+		if(side2>max) max=side2;
+		if(side3>max) max=side3;
+		if(Math.abs(Math.sqrt(side3*side3+side2*side2+side1*side1-max*max)-max)/max<0.01){
+			return true;
+		}else{
+			return false;
+		}
 	}
 	public static boolean isItInvalidInputLetter(double[] triangle)
 	{

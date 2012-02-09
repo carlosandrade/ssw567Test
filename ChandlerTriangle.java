@@ -65,25 +65,42 @@ public class ChandlerTriangle extends JFrame{
 		JOptionPane.showMessageDialog(this, checkResultMessage(txtSide1.getText(),txtSide2.getText(),txtSide3.getText()));
 	}
 	public String checkResultMessage(String s1, String s2, String s3){
+		String message="";
 		try{
 			float side1=Float.parseFloat(s1);
 			float side2=Float.parseFloat(s2);
 			float side3=Float.parseFloat(s3);
 			if(!(side2-side1<side3&&side1-side2<side3&&side1+side2>side3)){
 				return "Not a triangle.";
-			}
-			if(side1==side2||side2==side3||side3==side1){
-				if(side1==side2&&side2==side3){
-					return "This triangle is equilateral.";
-				}else{
-					return "This triangle is isosceles.";
-				}
 			}else{
-				return "This triangle is scalene.";
+				if(side1==side2||side2==side3||side3==side1){
+					if(side1==side2&&side2==side3){
+						return "This triangle is equilateral.";
+					}else{
+						message+="isosceles.";
+					}
+				}else{
+					message+="scalene.";
+				}
+				if(isRightTriangle(side1,side2,side3)){
+					return "This triangle is right "+message;
+				}else{
+					return "This triangle is "+message;
+				}
 			}
 			}catch(NumberFormatException e){
 				return "Invalid input number.";
 			}
+	}
+	private boolean isRightTriangle(float side1, float side2, float side3){
+		float max=side1;
+		if(side2>max) max=side2;
+		if(side3>max) max=side3;
+		if(Math.abs(Math.sqrt(side3*side3+side2*side2+side1*side1-max*max)-max)/max<0.01){
+			return true;
+		}else{
+			return false;
+		}
 	}
 	private void clear(){
 		txtSide1.setText("");
