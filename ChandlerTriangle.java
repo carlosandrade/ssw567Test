@@ -93,13 +93,10 @@ public class ChandlerTriangle extends JFrame{
 			}
 	}
 	private boolean isRightTriangle(float side1, float side2, float side3){
-		float[] sides={side1, side2, side3};
-		int maxFloatIndex=0;
-		if(sides[1]>maxFloatIndex) maxFloatIndex=1;
-		if(sides[2]>maxFloatIndex) maxFloatIndex=2;
-		float nonMaxSide1=sides[(maxFloatIndex+1)%3];
-		float nonMaxSide2=sides[(maxFloatIndex+2)%3];
-		if((new Float(Math.sqrt(new Float(nonMaxSide1*nonMaxSide1+nonMaxSide2*nonMaxSide2).doubleValue()))-sides[maxFloatIndex])/sides[maxFloatIndex]<0.01f){
+		float max=side1;
+		if(side2>max) max=side2;
+		if(side3>max) max=side3;
+		if(Math.abs(Math.sqrt(side3*side3+side2*side2+side1*side1-max*max)-max)/max<0.01){
 			return true;
 		}else{
 			return false;

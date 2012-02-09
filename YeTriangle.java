@@ -39,12 +39,20 @@ double c=Double.parseDouble(side3);
      if (a==b||a==c||b==c)
       {
         if(a==b&&a==c) {
-          return("Equilateral.");
+        		return("Equilateral.");
 	}
         else {
-           return("Isosceles.");
+        	if(isRightTriangle(a,b,c)){
+        		return "Isosceles and right.";
+        	}
+        	else
+        		return("Isosceles.");
 	}
       }
+     if(isRightTriangle(a,b,c)){
+ 		return "Right.";
+ 	}
+ 	else
      return("Scalene.");
    }
 
@@ -53,6 +61,16 @@ double c=Double.parseDouble(side3);
 		 return "Invalid input.";
 	 }
  }
+ private static boolean isRightTriangle(double side1, double side2, double side3){
+		double max=side1;
+		if(side2>max) max=side2;
+		if(side3>max) max=side3;
+		if(Math.abs(Math.sqrt(side3*side3+side2*side2+side1*side1-max*max)-max)/max<0.01){
+			return true;
+		}else{
+			return false;
+		}
+	}
 }
 
 class Keyboard{
